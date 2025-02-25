@@ -1,0 +1,4 @@
+[submodule "engines/laser_ai"]
+	path = engines/laser_ai
+	url = https://github.com/Mattis1337/Laser-AI.git
+	branch = optimizations

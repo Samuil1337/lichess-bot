@@ -2,6 +2,7 @@
 **/__pycache__
 /engines/*
 !/engines/README.md
+!/engines/laser_ai
 lichess_bot_auto_logs/*
 .vscode/*
 .vs/*
