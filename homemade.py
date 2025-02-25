@@ -9,12 +9,41 @@ import random
 from lib.engine_wrapper import MinimalEngine
 from lib.lichess_types import MOVE, HOMEMADE_ARGS_TYPE
 import logging
+# Laser-AI
+import sys
+sys.path.insert(1, './engines/laser_ai')
+import train_model
 
 
 # Use this logger variable to print messages to the console or log files.
 # logger.info("message") will always print "message" to the console or log file.
 # logger.debug("message") will only print "message" if verbose logging is enabled.
 logger = logging.getLogger(__name__)
+
+
+class NeuralEngine(MinimalEngine):
+    """An engine running on Laser-AI in the backend"""
+
+    def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:
+        # Catch AI errors
+        try:
+            ai_moves = train_model.generate_move(color=board.turn, fen=board.fen())
+        except Exception:
+            logger.error("Failed to generate move!")
+            ai_moves = []
+
+        # Get first legal move of outputs
+        for ai_move in ai_moves:
+            try:
+                move = board.parse_uci(ai_move)
+            except ValueError:
+                continue
+            if board.is_legal(move):
+                return PlayResult(ai_move, None)
+
+        # Return a random legal move just in case
+        logger.warn("None of the AI moves were legal!")
+        return PlayResult(random.choice(list(board.legal_moves)), None)
 
 
 class ExampleEngine(MinimalEngine):
