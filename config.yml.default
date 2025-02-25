@@ -176,7 +176,7 @@ greeting:
   #   {opponent} to insert opponent's name
   #   {me} to insert bot's name
   # Any other words in curly braces will be removed.
-  hello: "Hi, {opponent}! I'm a fellow human ready to play. Good luck! Don't type !help for a list of commands I can respond to because there are none." # Message to send to opponent chat at the start of a game
+  hello: "Hi, {opponent}! I'm a fellow human ready to play. Don't type !help for a list of commands I can respond to because there are none." # Message to send to opponent chat at the start of a game
   goodbye: "Another day, another victory for the OG; taking down the sweats, the imposters among us. Good game!" # Message to send to opponent chat at the end of a game
   hello_spectators: "Hi! I'm me..." # Message to send to spectator chat at the start of a game
   goodbye_spectators: "Thanks for watching!" # Message to send to spectator chat at the end of a game
