@@ -21,7 +21,7 @@
             pyyaml
             backoff
             rich
-	    # Laser-AI
+            # Laser-AI
             numpy
             chess
             torch
@@ -41,7 +41,7 @@
             pyyaml
             backoff
             rich
-	    # Laser-AI
+            # Laser-AI
             numpy
             chess
             torch-bin  # precompiled PyTorch with CUDA support
