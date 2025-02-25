@@ -29,7 +29,7 @@ class NeuralEngine(MinimalEngine):
         try:
             ai_moves = train_model.generate_move(color=board.turn, fen=board.fen())
         except Exception:
-            logger.error("Failed to generate move!")
+            logger.error("Failed to generate move!", exc_info=True)
             ai_moves = []
 
         # Get first legal move of outputs
