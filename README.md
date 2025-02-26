@@ -1,3 +1,15 @@
+### How to set up lichess-bot with Laser-AI:
+```bash
+git clone https://github.com/Samuil1337/lichess-bot.git
+cd lichess-bot
+git submodule update --init
+cp config.yml.default config.yml
+# Add your token to the first line of the config (e.g. `nano config.yml`)
+# Download & extract the CSV and models directories to the root of the repo (e.g. tar xf CSV.tar.xz models.tar.xz)
+nix develop  # append `.#cuda` for cuda support
+./start.sh
+```
+
 <div align="center">
 
   ![lichess-bot](https://github.com/lichess-bot-devs/lichess-bot-images/blob/main/lichess-bot-icon-400.png)
