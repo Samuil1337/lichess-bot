@@ -13,7 +13,6 @@ import logging
 import sys
 sys.path.insert(1, './engines/laser_ai')
 import train_model
-import time
 
 
 # Use this logger variable to print messages to the console or log files.
@@ -26,9 +25,6 @@ class NeuralEngine(MinimalEngine):
     """An engine running on Laser-AI in the backend"""
 
     def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:
-        # Delay for Turing Test
-        time.sleep(random.randint(5, 15))
-
         # Catch AI errors
         try:
             ai_moves = train_model.generate_move(color=board.turn, fen=board.fen())
